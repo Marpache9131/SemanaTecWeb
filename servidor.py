@@ -1,5 +1,5 @@
 from flask import Flask, request,jsonify,render_template
-from werkzug.utils import secure_filename
+from Werkzug.utils import secure_filename
 from joblib import load
 import numpy as np
 import os
