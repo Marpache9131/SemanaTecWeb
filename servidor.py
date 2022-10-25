@@ -31,7 +31,14 @@ def modeloFile():
     file = open(path,'r')
     for line in file:
         print(line)
-    
+
+    return jsonify({"Resultado":"datos recibidos"})
+
+@servidorWeb.route("/modelo",methods=['POST'])
+def model():
+    #procesar datos de entrada
+    contenido = request.json
+    print(contenido)
     return jsonify({"Resultado":"datos recibidos"})
 
 
