@@ -4,6 +4,10 @@ from joblib import load
 import numpy as np
 import os
 from fileinput import filename
+
+#Cargar el modelo
+dt = load('modelo.joblib')
+
 #Generar el servidor (Back-end)
 
 servidorWeb = Flask(__name__)
@@ -20,6 +24,8 @@ def modeloForm():
     #Procesar datos de entrada
     contenido = request.form
     print(contenido)
+
+
     return jsonify({"Resultado":"datos recibidos"})
 
 @servidorWeb.route("/modeloFile",methods=['POST'])
