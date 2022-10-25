@@ -1,9 +1,9 @@
 from flask import Flask, request,jsonify,render_template
-from Werkzug.utils import secure_filename
+from werkzeug.utils import secure_filename
 from joblib import load
 import numpy as np
 import os
-
+from fileinput import filename
 #Generar el servidor (Back-end)
 
 servidorWeb = Flask(__name__)
