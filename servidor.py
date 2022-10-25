@@ -25,8 +25,25 @@ def modeloForm():
     contenido = request.form
     print(contenido)
 
+    datosEntrada = np.array([
+        8.6000,
+        0.4900,
+        0.5100,
+        2.0000,
+        0.4220,
+        16.0000,
+        62.0000,
+        0.9979,
+        contenido['pH'],
+        contenido['sulfatos'],
+        contenido['alcohol']
+    ])
 
-    return jsonify({"Resultado":"datos recibidos"})
+    #Utilizar el modelo
+    resultado = dt.predict(datosEntrada.reshape(1,-1))
+
+
+    return jsonify({"Resultado":str(resultado[0])})
 
 @servidorWeb.route("/modeloFile",methods=['POST'])
 def modeloFile():
